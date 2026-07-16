@@ -99,3 +99,5 @@ GitHubユーザー名またはOrganization名が `bluehip` ではない場合、
 `homepage/index.html` をブラウザで開いて確認できます。
 
 この環境では `python` が Windows Store エイリアスのみで、簡易サーバーには使えませんでした。確認時は Node.js の一時静的サーバーで `http://127.0.0.1:4174/` を開いて検証しています。
+
+Git push test: 2026-07-16 Sprint2.1 environment check.
