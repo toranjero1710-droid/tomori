@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://toranjero1710-droid.github.io/tomori/sitemap.xml
