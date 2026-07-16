@@ -40,9 +40,8 @@
     </header>
 
     <main id="top">
-      <section class="hero" aria-labelledby="hero-title">
+      <section class="hero" id="about" aria-labelledby="hero-title">
         <div class="hero-copy" data-reveal>
-          <p class="hero-kicker">Project TOMORI</p>
           <h1 id="hero-title">ともり</h1>
           <p class="hero-lead">あの日住んでた思い出を<br>そのままに。</p>
           <div class="hero-message">
@@ -57,79 +56,84 @@
         <div class="hero-visual" data-reveal aria-hidden="true">
           <img src="assets/images/hero/tomori-hero-home.png" alt="" width="1536" height="1024" fetchpriority="high" decoding="sync">
         </div>
-        <a class="year-badge" href="#year-letter" data-reveal>
-          <img src="assets/images/icons/icon-annual-letter.svg" width="72" height="72" alt="">
-          <span>毎年、一年の便りを<br>お届けします。</span>
-          <small>詳しく見る</small>
-        </a>
       </section>
 
-      <section class="section about-section" id="about" aria-labelledby="about-title">
-        <div class="section-inner about-layout">
-          <div data-reveal>
-            <p class="section-kicker">ともりとは</p>
-            <h2 id="about-title">家族の代わりに、<br>大切なお家へ会いに行きます。</h2>
+      <section class="annual-section" id="year-letter" aria-labelledby="year-letter-title">
+        <div class="page-shell annual-band" data-reveal>
+          <div class="annual-mark" aria-hidden="true">
+            <span>一年の<br>便り</span>
           </div>
-          <div class="about-text" data-reveal>
-            <p>仕事や家庭の事情で、帰りたくても帰れない。</p>
-            <p>そんなご家族の代わりに、ともりは大切なお家の様子を見守ります。</p>
-            <p>空き家をただ管理するのではなく、その家に残る思い出と、今の暮らしの不安に寄り添うサービスです。</p>
+          <div class="annual-copy">
+            <p class="section-kicker">一年の便り</p>
+            <h2 id="year-letter-title">毎年、一年の便りをお届けします。</h2>
+            <p>一年を振り返り、お家の様子をまとめた特別な便りです。</p>
           </div>
-          <div class="about-symbol" aria-hidden="true" data-reveal>
-            <img src="assets/images/icons/icon-home-watch.svg" width="120" height="120" alt="">
-          </div>
+          <img class="annual-image" src="assets/images/annual-letter/season-album.webp" width="760" height="160" alt="四季の写真を並べた一年の便りのイメージ">
+          <a class="annual-link" href="#contact">詳しく見る</a>
         </div>
       </section>
 
-      <section class="section services-section" id="services" aria-labelledby="services-title">
-        <div class="section-inner">
+      <section class="services-section" id="services" aria-labelledby="services-title">
+        <div class="page-shell">
           <div class="section-heading centered" data-reveal>
             <p class="section-kicker">できること</p>
             <h2 id="services-title">お家の様子を、やさしく確かめます。</h2>
           </div>
           <div class="service-grid">
             <article class="service-card" data-reveal>
-              <img src="assets/images/icons/icon-home-watch.svg" width="80" height="80" alt="">
-              <h3>お家を見守る</h3>
-              <p>月に一度、大切なお家へ会いに行き、変わらない日常を確かめます。</p>
+              <img src="assets/images/services/home-watch.webp" width="640" height="390" alt="玄関と庭のある住宅">
+              <div>
+                <h3>お家を見守る</h3>
+                <p>月に一度、変わらない日常をやさしく確かめます。</p>
+              </div>
             </article>
             <article class="service-card" data-reveal>
-              <img src="assets/images/icons/icon-photo-seven.svg" width="80" height="80" alt="">
-              <h3>写真7枚</h3>
-              <p>離れていても安心できる写真をお届けします。</p>
+              <img src="assets/images/services/photo-seven.webp" width="640" height="390" alt="スマートフォンで家を撮影している手元">
+              <div>
+                <h3>写真7枚</h3>
+                <p>離れていても安心できる写真をお届けします。</p>
+              </div>
             </article>
             <article class="service-card" data-reveal>
-              <img src="assets/images/icons/icon-tomori-letter.svg" width="80" height="80" alt="">
-              <h3>ともり便り</h3>
-              <p>今日も、お家は変わらず元気でした。</p>
+              <img src="assets/images/services/tomori-letter.webp" width="640" height="390" alt="机の上の手紙と葉っぱ">
+              <div>
+                <h3>ともり便り</h3>
+                <p>今日も、お家は変わらず元気でした。</p>
+              </div>
             </article>
             <article class="service-card" data-reveal>
-              <img src="assets/images/icons/icon-care.svg" width="80" height="80" alt="">
-              <h3>小さな気配り</h3>
-              <p>玄関まわりの清掃や草むしりなど、できる範囲でそっと整えます。</p>
+              <img src="assets/images/services/care.webp" width="640" height="390" alt="玄関前のほうきと落ち葉">
+              <div>
+                <h3>小さな気配り</h3>
+                <p>できる範囲でそっと整え、快適な環境を保ちます。</p>
+              </div>
             </article>
             <article class="service-card" data-reveal>
-              <img src="assets/images/icons/icon-key.svg" width="80" height="80" alt="">
-              <h3>鍵のお預かり</h3>
-              <p>必要な場合だけ、決めた方法で大切な鍵をお預かりします。</p>
+              <img src="assets/images/services/key.webp" width="640" height="390" alt="手のひらで大切に持つ鍵">
+              <div>
+                <h3>鍵のお預かり</h3>
+                <p>大切な鍵を責任を持ってお預かりします。</p>
+              </div>
             </article>
-            <article class="service-card accent" data-reveal>
-              <img src="assets/images/icons/icon-annual-letter.svg" width="80" height="80" alt="">
-              <h3>一年の便り</h3>
-              <p>一年を振り返り、お家の記憶を次へつなぐ便りをお届けします。</p>
+            <article class="service-card" data-reveal>
+              <img src="assets/images/services/annual-letter.webp" width="640" height="390" alt="写真アルバムを開いた様子">
+              <div>
+                <h3>一年の便り</h3>
+                <p>一年を振り返り、お家の記憶をアルバムのようにお届けします。</p>
+              </div>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section price-section" id="price" aria-labelledby="price-title">
-        <div class="section-inner price-panel" data-reveal>
-          <div class="price-main">
+      <section class="price-talk-section" id="price" aria-labelledby="price-title">
+        <div class="page-shell price-talk-grid">
+          <div class="price-card" data-reveal>
             <p class="plan-name">基本プラン</p>
             <p class="price">月額 <span>9,800</span>円 <small>税込</small></p>
-            <p>追加作業・追加請求はいたしません。</p>
+            <p class="price-note">ご承諾のない追加作業・追加請求はいたしません。</p>
           </div>
-          <div class="price-includes">
+          <div class="includes-card" data-reveal>
             <p class="plan-name">基本プランに含まれるもの</p>
             <ul>
               <li>月1回、お家へ会いに行く</li>
@@ -137,73 +141,42 @@
               <li>写真7枚</li>
               <li>ともり便り</li>
               <li>玄関まわりの簡単な清掃</li>
-              <li>できる範囲での草刈り・草むしり</li>
+              <li>できる範囲での簡単な草刈り・草むしり</li>
               <li>一年の便り</li>
               <li>鍵のお預かり（希望者のみ）</li>
             </ul>
           </div>
-          <div class="price-message">
+          <div class="assurance-card" id="promise" data-reveal>
             <h2 id="price-title">料金も、安心の一つだと考えています。</h2>
-            <p>ご承諾のない追加作業・追加請求はいたしません。基本サービスを超える作業が必要な場合は、必ず事前にご説明・お見積りを行い、ご納得いただいてから対応します。</p>
+            <p>ご承諾のない追加作業・追加請求はいたしません。</p>
+            <p>基本サービスを超える作業が必要な場合は、必ず事前にご説明・お見積りを行い、ご納得いただいてから対応します。</p>
           </div>
         </div>
       </section>
 
-      <section class="year-letter-section" id="year-letter" aria-labelledby="year-letter-title">
-        <div class="section-inner year-letter-band" data-reveal>
-          <div class="year-copy">
-            <p class="year-pill">一年の便り</p>
-            <h2 id="year-letter-title">毎年、一年の便りをお届けします。</h2>
-            <p>季節ごとのお家の表情、変わらず残っていたもの、少し気になったこと。ひとつの便りにまとめて、思い出と安心を手元へ届けます。</p>
-          </div>
-          <img class="letter-preview" src="assets/images/annual-letter/letter-preview.svg" width="420" height="220" alt="一年の便りのイメージ">
-        </div>
-      </section>
-
-      <section class="section promise-section" id="promise" aria-labelledby="promise-title">
-        <div class="section-inner">
-          <div class="section-heading centered" data-reveal>
-            <p class="section-kicker">ともりのお約束</p>
-            <h2 id="promise-title">不安を増やさないために、はっきり約束します。</h2>
-          </div>
-          <div class="promise-grid">
-            <article data-reveal>
-              <h3>明朗会計</h3>
-              <p>料金と対応範囲を事前にお伝えし、勝手な追加請求は行いません。</p>
-            </article>
-            <article data-reveal>
-              <h3>寄り添うために提案する</h3>
-              <p>売るためではなく、ご家族とお家にとって必要なことだけを一緒に考えます。</p>
-            </article>
-            <article data-reveal>
-              <h3>事実を、誠実に伝える</h3>
-              <p>良いことも、気になることも、見たままを落ち着いた言葉でお伝えします。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section questions-section" id="questions" aria-labelledby="questions-title">
-        <div class="section-inner">
-          <p class="section-kicker" data-reveal>5つのお話</p>
-          <h2 id="questions-title" data-reveal>最初に、少しだけ聞かせてください。</h2>
+      <section class="questions-section" id="questions" aria-labelledby="questions-title">
+        <div class="page-shell questions-panel" data-reveal>
+          <p class="section-kicker">5つのお話</p>
+          <h2 id="questions-title">最初に、少しだけ聞かせてください。</h2>
           <ol class="question-list">
-            <li data-reveal><span>今、一番気になっていること</span></li>
-            <li data-reveal><span>このお家で大切にされていること</span></li>
-            <li data-reveal><span>今はどなたが見守られているか</span></li>
-            <li data-reveal><span>お家までどれくらい離れているか</span></li>
-            <li data-reveal><span>これから、このお家をどうしていきたいか</span></li>
+            <li><span>今、一番気になっていること</span></li>
+            <li><span>このお家で大切にされていること</span></li>
+            <li><span>今はどなたが見守られているか</span></li>
+            <li><span>お家までどれくらい離れているか</span></li>
+            <li><span>これから、このお家をどうしていきたいか</span></li>
           </ol>
         </div>
       </section>
 
       <section class="final-cta" id="contact" aria-labelledby="contact-title">
-        <div class="section-inner final-cta-panel" data-reveal>
+        <div class="page-shell final-cta-panel" data-reveal>
+          <div class="leaf left" aria-hidden="true"></div>
           <h2 id="contact-title">まずは、お話を聞かせてください。</h2>
           <div class="contact-actions">
             <a class="button primary" href="https://line.me/R/ti/p/@tomori" target="_blank" rel="noopener">LINEで相談する</a>
             <a class="button light" href="tel:0000000000">電話する</a>
           </div>
+          <div class="leaf right" aria-hidden="true"></div>
         </div>
       </section>
     </main>
