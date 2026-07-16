@@ -22,9 +22,7 @@ class MainShell extends StatelessWidget {
         return Scaffold(
           body: LayoutBuilder(
             builder: (context, constraints) {
-              final child = _PhoneSurface(
-                child: _ScreenSwitcher(viewModel: viewModel),
-              );
+              final child = _PhoneSurface(child: _ScreenSwitcher(viewModel: viewModel));
               if (constraints.maxWidth < 620) return child;
               return Center(
                 child: ConstrainedBox(
@@ -60,10 +58,7 @@ class _PhoneSurface extends StatelessWidget {
   Widget build(BuildContext context) {
     return ColoredBox(
       color: TomoriColors.cream,
-      child: SafeArea(
-        bottom: false,
-        child: child,
-      ),
+      child: SafeArea(bottom: false, child: child),
     );
   }
 }
@@ -96,10 +91,7 @@ class _ScreenSwitcher extends StatelessWidget {
           ),
         );
       },
-      child: KeyedSubtree(
-        key: ValueKey(viewModel.currentIndex),
-        child: screens[viewModel.currentIndex],
-      ),
+      child: KeyedSubtree(key: ValueKey(viewModel.currentIndex), child: screens[viewModel.currentIndex]),
     );
   }
 }

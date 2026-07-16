@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Text('☀️', style: TextStyle(fontSize: 30)),
+              const Text('☀', style: TextStyle(fontSize: 30)),
               const SizedBox(width: 10),
               Text('おはようございます！', style: Theme.of(context).textTheme.titleLarge),
             ],
@@ -39,7 +39,7 @@ class HomeScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(customer.name, style: Theme.of(context).textTheme.titleMedium),
+                        Text(customer.displayName, style: Theme.of(context).textTheme.titleMedium),
                         Text(customer.time, style: Theme.of(context).textTheme.headlineMedium),
                         Text(customer.address, style: Theme.of(context).textTheme.bodySmall),
                         const SizedBox(height: 8),
@@ -57,13 +57,13 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 14),
           ],
+          const SizedBox(height: 14),
           Row(
             children: const [
-              Expanded(child: _CountCard(label: '今週', value: '5件')),
+              Expanded(child: _CountCard(label: '今週', value: '1件')),
               SizedBox(width: 12),
-              Expanded(child: _CountCard(label: '今月', value: '18件')),
+              Expanded(child: _CountCard(label: '今月', value: '1件')),
             ],
           ),
         ],

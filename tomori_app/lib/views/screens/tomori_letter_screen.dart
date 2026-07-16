@@ -11,6 +11,7 @@ class TomoriLetterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = TextEditingController(text: viewModel.note);
     return ScreenPadding(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -28,6 +29,7 @@ class TomoriLetterScreen extends StatelessWidget {
           Text('一言追加する（任意）', style: Theme.of(context).textTheme.titleMedium),
           const SizedBox(height: 8),
           TextField(
+            controller: controller,
             maxLines: 4,
             maxLength: 200,
             onChanged: viewModel.updateNote,
@@ -40,7 +42,10 @@ class TomoriLetterScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 8),
-          TomoriButton(label: '送信する（確認画面へ）', icon: Icons.send_outlined, onPressed: () {}),
+          TomoriButton(label: '送信する（確認画面へ）', icon: Icons.send_outlined, onPressed: viewModel.saveLetterNote),
+          const SizedBox(height: 12),
+          if (viewModel.letterSaved)
+            const Text('巡回履歴へ保存済みです。', textAlign: TextAlign.center, style: TextStyle(color: TomoriColors.green, fontWeight: FontWeight.w700)),
         ],
       ),
     );

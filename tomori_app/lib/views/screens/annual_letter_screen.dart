@@ -13,7 +13,7 @@ class AnnualLetterScreen extends StatelessWidget {
     return ScreenPadding(
       child: Column(
         children: [
-          Text('一年の便り 2027⌄', style: Theme.of(context).textTheme.titleLarge),
+          Text('一年の便り 2026', style: Theme.of(context).textTheme.titleLarge),
           const SizedBox(height: 4),
           Text('今年の思い出をまとめます', style: Theme.of(context).textTheme.bodySmall),
           const SizedBox(height: 18),
@@ -47,6 +47,17 @@ class AnnualLetterScreen extends StatelessWidget {
                 ],
               ),
             )).toList(),
+          ),
+          const SizedBox(height: 14),
+          SoftCard(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('2026年の記録', style: Theme.of(context).textTheme.titleMedium),
+                const SizedBox(height: 6),
+                Text(viewModel.annualSummary, style: Theme.of(context).textTheme.bodyMedium),
+              ],
+            ),
           ),
           const SizedBox(height: 18),
           TomoriButton(label: 'PDFを作成する', icon: Icons.picture_as_pdf_outlined, onPressed: () {}),

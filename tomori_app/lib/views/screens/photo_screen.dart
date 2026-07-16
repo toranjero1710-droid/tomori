@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../data/models/tomori_models.dart';
 import '../../ui/tomori_theme.dart';
 import '../../viewmodels/tomori_view_model.dart';
 import '../widgets/tomori_widgets.dart';
@@ -21,7 +22,7 @@ class PhotoScreen extends StatelessWidget {
               IconButton(onPressed: () {}, icon: const Icon(Icons.help_outline)),
             ],
           ),
-          Text('撮影ガイドに沿って撮ってください', style: Theme.of(context).textTheme.bodySmall),
+          Text('撮影ガイドに沿って登録済みです', style: Theme.of(context).textTheme.bodySmall),
           const SizedBox(height: 16),
           for (var i = 0; i < viewModel.photoGuides.length; i++) ...[
             _PhotoGuideRow(number: i + 1, guide: viewModel.photoGuides[i]),
@@ -39,7 +40,7 @@ class _PhotoGuideRow extends StatelessWidget {
   const _PhotoGuideRow({required this.number, required this.guide});
 
   final int number;
-  final dynamic guide;
+  final PhotoGuide guide;
 
   @override
   Widget build(BuildContext context) {

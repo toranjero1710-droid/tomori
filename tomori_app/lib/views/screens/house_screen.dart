@@ -28,11 +28,11 @@ class HouseScreen extends StatelessWidget {
           Row(
             children: [
               IconButton(onPressed: () => viewModel.setScreen(0), icon: const Icon(Icons.chevron_left)),
-              Expanded(child: Text(customer.name, textAlign: TextAlign.center, style: Theme.of(context).textTheme.titleLarge)),
+              Expanded(child: Text(customer.displayName, textAlign: TextAlign.center, style: Theme.of(context).textTheme.titleLarge)),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                 decoration: BoxDecoration(color: TomoriColors.lightGreen, borderRadius: BorderRadius.circular(999)),
-                child: const Text('基本プラン', style: TextStyle(fontSize: 11, fontWeight: FontWeight.w700, color: TomoriColors.deepGreen)),
+                child: Text(customer.plan, style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w700, color: TomoriColors.deepGreen)),
               ),
             ],
           ),
@@ -66,23 +66,50 @@ class HouseScreen extends StatelessWidget {
           const SizedBox(height: 14),
           SoftCard(
             color: TomoriColors.lightGreen,
-            child: Row(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('今日のひとことメモ', style: TextStyle(fontWeight: FontWeight.w700, color: TomoriColors.deepGreen)),
-                      SizedBox(height: 6),
-                      Text('玄関の紫陽花がきれいに咲いていました。'),
-                    ],
-                  ),
-                ),
-                IconButton(onPressed: () {}, icon: const Icon(Icons.edit, color: TomoriColors.green)),
+                const Text('今日のひとことメモ', style: TextStyle(fontWeight: FontWeight.w700, color: TomoriColors.deepGreen)),
+                const SizedBox(height: 6),
+                Text(viewModel.voiceMemo.split('\n').take(2).join('\n')),
               ],
             ),
           ),
+          const SizedBox(height: 14),
+          _InfoBlock(title: 'お家ノート 大切にしていること', body: viewModel.houseImportant),
+          const SizedBox(height: 10),
+          _InfoBlock(title: '次回見ること', body: viewModel.houseNextChecks),
+          const SizedBox(height: 10),
+          _InfoBlock(title: 'ともりメモ', body: viewModel.houseMemo),
+          const SizedBox(height: 14),
+          _InfoBlock(
+            title: '5つのお話',
+            body: viewModel.fiveTalks.asMap().entries.map((entry) => '${entry.key + 1}. ${entry.value['answer']}').join('\n'),
+          ),
+          const SizedBox(height: 14),
+          _InfoBlock(title: '巡回履歴', body: '${viewModel.visitDate} ${viewModel.visitWeather}\n${viewModel.visitActions}'),
+        ],
+      ),
+    );
+  }
+}
+
+class _InfoBlock extends StatelessWidget {
+  const _InfoBlock({required this.title, required this.body});
+
+  final String title;
+  final String body;
+
+  @override
+  Widget build(BuildContext context) {
+    return SoftCard(
+      padding: const EdgeInsets.all(14),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(title, style: Theme.of(context).textTheme.titleMedium),
+          const SizedBox(height: 6),
+          Text(body, style: Theme.of(context).textTheme.bodyMedium),
         ],
       ),
     );
