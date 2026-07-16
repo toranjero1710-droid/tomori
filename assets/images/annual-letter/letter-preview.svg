@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="220" viewBox="0 0 420 220" role="img" aria-labelledby="title">
+  <title id="title">一年の便りのイメージ</title>
+  <rect width="420" height="220" rx="24" fill="#f6ecd1"/>
+  <g transform="translate(116 30) rotate(-6)">
+    <rect width="120" height="160" rx="8" fill="#fffdf5" stroke="#d9cda8"/>
+    <rect x="16" y="18" width="88" height="44" rx="6" fill="#dfe9d8"/>
+    <path d="M18 82h84M18 100h70M18 118h78" stroke="#104734" stroke-width="4" stroke-linecap="round" opacity=".45"/>
+  </g>
+  <g transform="translate(205 34) rotate(7)">
+    <rect width="120" height="160" rx="8" fill="#fffdf5" stroke="#d9cda8"/>
+    <rect x="16" y="18" width="88" height="44" rx="6" fill="#f1dda9"/>
+    <path d="M18 82h84M18 100h70M18 118h78" stroke="#104734" stroke-width="4" stroke-linecap="round" opacity=".45"/>
+  </g>
+  <circle cx="86" cy="76" r="25" fill="#d5a642" opacity=".28"/>
+  <path d="M62 154c52-38 119-38 166 0" fill="none" stroke="#8bb58a" stroke-width="8" stroke-linecap="round" opacity=".55"/>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" role="img" aria-labelledby="title">
+  <title id="title">一年の便り</title>
+  <circle cx="48" cy="48" r="42" fill="#fff6db"/>
+  <rect x="28" y="27" width="40" height="44" rx="4" fill="#fffdf5" stroke="#104734" stroke-width="4"/>
+  <path d="M36 41h24M36 51h20M36 61h14" fill="none" stroke="#104734" stroke-width="3" stroke-linecap="round"/>
+  <path d="M64 23c8 2 13 7 15 16-9 0-15-4-19-13" fill="#8bb58a"/>
+  <path d="M28 72c12-7 28-7 40 0" fill="none" stroke="#d5a642" stroke-width="4" stroke-linecap="round"/>
+</svg>

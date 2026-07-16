@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="92" viewBox="0 0 280 92" role="img" aria-labelledby="title">
+  <title id="title">ともり 白抜きロゴ</title>
+  <circle cx="46" cy="46" r="34" fill="none" stroke="#fffdf5" stroke-width="3"/>
+  <path d="M24 49 46 29l22 20M31 47v21h30V47M41 68V55h10v13" fill="none" stroke="#fffdf5" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="46" cy="45" r="5.7" fill="#fffdf5"/>
+  <text x="96" y="48" fill="#fffdf5" font-family="'Yu Mincho','Hiragino Mincho ProN',serif" font-size="38" font-weight="700" letter-spacing="8">ともり</text>
+  <text x="100" y="70" fill="#fffdf5" font-family="'Yu Gothic','Hiragino Sans',sans-serif" font-size="12" font-weight="700">お家へ会いに行きます</text>
+</svg>

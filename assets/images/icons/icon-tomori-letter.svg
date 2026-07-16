@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" role="img" aria-labelledby="title">
+  <title id="title">ともり便り</title>
+  <circle cx="48" cy="48" r="42" fill="#f7faf3"/>
+  <path d="M28 27h36l8 8v34H28z" fill="#fffdf5" stroke="#104734" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M63 27v10h9M38 45h22M38 55h18" fill="none" stroke="#104734" stroke-width="3" stroke-linecap="round"/>
+  <path d="M30 70c14-8 30-8 42 0" fill="none" stroke="#d5a642" stroke-width="4" stroke-linecap="round"/>
+</svg>
