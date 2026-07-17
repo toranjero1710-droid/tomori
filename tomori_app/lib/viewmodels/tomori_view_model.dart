@@ -13,6 +13,7 @@ class TomoriViewModel extends ChangeNotifier {
   int currentIndex = 0;
   bool isRecording = false;
   bool dataLoaded = false;
+  bool hasStoredData = false;
   bool letterSaved = true;
   String recordingTime = '00:00';
   String aiDraft = testAiDraft;
@@ -28,22 +29,7 @@ class TomoriViewModel extends ChangeNotifier {
 
   static const homeImage = 'assets/images/hero/tomori-hero-home.png';
 
-  List<Customer> customers = const [
-    Customer(
-      name: '山田テスト様',
-      displayName: '山田様のお家',
-      time: '10:00',
-      address: '大阪府高槻市テスト町1-2-3',
-      plan: '基本プラン',
-      phone: '090-0000-0000',
-      lineId: '未設定',
-      keyNumber: 'TEST-001',
-      emergencyContact: '山田花子',
-      emergencyPhone: '090-1111-1111',
-      imagePath: homeImage,
-      nextVisit: '2026-07-25 10:00',
-    ),
-  ];
+  List<Customer> customers = const [];
 
   List<PhotoGuide> photoGuides = const [
     PhotoGuide('家全体', true, homeImage),
@@ -72,11 +58,14 @@ class TomoriViewModel extends ChangeNotifier {
 
   Future<void> loadSprint6Workflow() async {
     try {
-      await AppDatabase.instance.seedSprint6TestData();
       final snapshot = await AppDatabase.instance.loadSprint6Snapshot();
-      if (snapshot != null) _applySnapshot(snapshot);
+      if (snapshot != null) {
+        _applySnapshot(snapshot);
+        hasStoredData = true;
+      }
     } on UnsupportedError {
-      // Web preview and widget tests use the same seeded in-memory values.
+      hasStoredData = true;
+      customers = _previewCustomers;
     } catch (_) {
       // Keep the app usable even if a local test database is unavailable.
     }
@@ -173,3 +162,20 @@ class TomoriViewModel extends ChangeNotifier {
     note = value;
   }
 }
+
+const _previewCustomers = [
+  Customer(
+    name: '山田テスト様',
+    displayName: '山田様のお家',
+    time: '10:00',
+    address: '大阪府高槻市テスト町1-2-3',
+    plan: '基本プラン',
+    phone: '090-0000-0000',
+    lineId: '未設定',
+    keyNumber: 'TEST-001',
+    emergencyContact: '山田花子',
+    emergencyPhone: '090-1111-1111',
+    imagePath: TomoriViewModel.homeImage,
+    nextVisit: '2026-07-25 10:00',
+  ),
+];

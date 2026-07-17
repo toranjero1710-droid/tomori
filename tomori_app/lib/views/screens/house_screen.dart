@@ -11,6 +11,9 @@ class HouseScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (viewModel.customers.isEmpty) {
+      return const ScreenPadding(child: SoftCard(child: Text('保存済みのお家データはありません。')));
+    }
     final customer = viewModel.customers.first;
     final actions = [
       _HouseAction(Icons.photo_camera_outlined, '写真', () => viewModel.setScreen(2)),

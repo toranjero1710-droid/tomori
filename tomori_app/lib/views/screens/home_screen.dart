@@ -11,6 +11,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final count = viewModel.customers.length;
     return ScreenPadding(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -23,8 +24,12 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 18),
-          Text('今日は\n${viewModel.customers.length}件のお家へ会いに行く予定です。', style: Theme.of(context).textTheme.bodyLarge),
+          Text('今日は\n$count件のお家へ会いに行く予定です。', style: Theme.of(context).textTheme.bodyLarge),
           const SizedBox(height: 18),
+          if (viewModel.dataLoaded && viewModel.customers.isEmpty)
+            const SoftCard(
+              child: Text('保存済みのお家データはありません。'),
+            ),
           for (final customer in viewModel.customers) ...[
             SoftCard(
               padding: const EdgeInsets.all(12),
@@ -60,10 +65,10 @@ class HomeScreen extends StatelessWidget {
           ],
           const SizedBox(height: 14),
           Row(
-            children: const [
-              Expanded(child: _CountCard(label: '今週', value: '1件')),
+            children: [
+              Expanded(child: _CountCard(label: '今週', value: '$count件')),
               SizedBox(width: 12),
-              Expanded(child: _CountCard(label: '今月', value: '1件')),
+              Expanded(child: _CountCard(label: '今月', value: '$count件')),
             ],
           ),
         ],
