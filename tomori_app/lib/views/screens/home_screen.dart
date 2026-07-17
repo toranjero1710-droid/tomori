@@ -27,8 +27,9 @@ class HomeScreen extends StatelessWidget {
           Text('今日は\n$count件のお家へ会いに行く予定です。', style: Theme.of(context).textTheme.bodyLarge),
           const SizedBox(height: 18),
           if (viewModel.dataLoaded && viewModel.customers.isEmpty)
-            const SoftCard(
-              child: Text('保存済みのお家データはありません。'),
+            SoftCard(
+              onTap: viewModel.registerYamadaHouse,
+              child: const Text('保存済みのお家データはありません。\n山田様のお家を登録する'),
             ),
           for (final customer in viewModel.customers) ...[
             SoftCard(
