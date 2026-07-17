@@ -27,6 +27,14 @@ class TomoriLetterScreen extends StatelessWidget {
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodySmall,
           ),
+          if (viewModel.aiMessage.isNotEmpty) ...[
+            const SizedBox(height: 10),
+            Text(
+              viewModel.aiMessage,
+              textAlign: TextAlign.center,
+              style: const TextStyle(color: TomoriColors.green, fontWeight: FontWeight.w700),
+            ),
+          ],
           const SizedBox(height: 18),
           SoftCard(
             color: const Color(0xFFFFFAEF),

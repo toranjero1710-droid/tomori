@@ -58,17 +58,6 @@ class TomoriWorkflowService {
         whereArgs: [customerId],
       );
       await dao.upsertByWhere(
-        'TomoriLetter',
-        values: {
-          'visitId': visitId,
-          'draftText': yamadaAiDraft,
-          'note': '紫陽花の写真を添えてお送りします。',
-          'sentAt': '2026-07-18 11:00',
-        },
-        where: 'visitId = ?',
-        whereArgs: [visitId],
-      );
-      await dao.upsertByWhere(
         'AnnualLetter',
         values: {
           'customerId': customerId,
@@ -119,5 +108,3 @@ const yamadaPhotos = [
 const yamadaFiveTalk = '1. 台風や大雨の後のお家の状態が心配。\n2. 庭の紫陽花と、お父様が植えた松。\n3. 長女の山田花子様。\n4. 東京から大阪のため、すぐには帰れない。\n5. 今すぐ売却せず、しばらく家族の思い出として残したい。';
 
 const yamadaVoiceMemo = '玄関前を掃きました。\n庭の紫陽花がきれいに咲いていました。\n郵便物はチラシが2通ありました。\n換気と通水を行いました。\n雨漏りや窓ガラスの破損は見当たりませんでした。\n松も元気そうでした。\n最後に窓と玄関の施錠を確認しました。';
-
-const yamadaAiDraft = '今日も、お家へ会いに行ってきました。\n\n玄関前を掃き、庭の紫陽花がきれいに咲いていることを確認しました。郵便物はチラシが2通ありました。\n\n換気と通水を行い、雨漏りや窓ガラスの破損は見当たりませんでした。お父様が植えられた松も元気そうでした。\n\n最後に窓と玄関の施錠を確認しています。\n\n今日も、お家は変わらず元気でした。';

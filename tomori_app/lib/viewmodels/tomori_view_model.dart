@@ -29,6 +29,7 @@ class TomoriViewModel extends ChangeNotifier {
   bool isGeneratingAi = false;
   bool letterSaved = false;
   String aiError = '';
+  String aiMessage = '';
   String recordingTime = '00:00';
   String aiDraft = '';
   String note = '';
@@ -146,6 +147,8 @@ class TomoriViewModel extends ChangeNotifier {
     fiveTalks = const [];
     aiDraft = '';
     note = '';
+    aiMessage = '';
+    aiError = '';
     voiceMemo = '';
     visitWeather = '';
     visitDate = '';
@@ -172,12 +175,17 @@ class TomoriViewModel extends ChangeNotifier {
     if (currentVisitId == null || customers.isEmpty) return;
     isGeneratingAi = true;
     aiError = '';
+    aiMessage = 'ともり便りを作成しています…';
     notifyListeners();
     try {
+      final customer = customers.first;
       final input = TomoriLetterInput(
+        customerName: customer.name,
+        homeName: customer.displayName,
         visitDate: visitDate,
         weather: visitWeather,
-        photoLabels: photoGuides.map((photo) => photo.name).toList(),
+        photoNotes: photoGuides.map((photo) => photo.name).toList(),
+        workActions: visitActions,
         voiceMemo: voiceMemo,
         fiveTalk: fiveTalks.map((talk) => talk['answer'] ?? '').join('\n'),
         houseNote: [houseImportant, houseNextChecks]
@@ -187,6 +195,7 @@ class TomoriViewModel extends ChangeNotifier {
       );
       final generated = await aiService.generateTomoriLetter(input);
       aiDraft = generated;
+      letterSaved = false;
       await repository.saveTomoriLetter({
         'visitId': currentVisitId,
         'draftText': generated,
@@ -195,12 +204,15 @@ class TomoriViewModel extends ChangeNotifier {
       });
       final snapshot = await repository.loadYamadaSnapshot();
       if (snapshot != null) _applySnapshot(snapshot);
+      aiMessage = 'ともり便りを更新しました';
       currentIndex = 4;
-    } on AiConfigurationException catch (error) {
-      aiError = error.message;
+    } on AiConfigurationException {
+      aiError = 'AI文章を生成できませんでした。\nネットワークをご確認ください。';
+      aiMessage = '';
       currentIndex = 3;
     } catch (_) {
-      aiError = 'AI生成に失敗しました。設定と通信状態を確認してください。';
+      aiError = 'AI文章を生成できませんでした。\nネットワークをご確認ください。';
+      aiMessage = '';
       currentIndex = 3;
     } finally {
       isGeneratingAi = false;

@@ -61,6 +61,14 @@ class AiInputScreen extends StatelessWidget {
             icon: Icons.auto_awesome,
             onPressed: viewModel.isGeneratingAi ? () {} : viewModel.createAiDraft,
           ),
+          if (viewModel.aiMessage.isNotEmpty) ...[
+            const SizedBox(height: 10),
+            Text(
+              viewModel.aiMessage,
+              textAlign: TextAlign.center,
+              style: const TextStyle(color: TomoriColors.green, fontWeight: FontWeight.w700),
+            ),
+          ],
           if (viewModel.aiError.isNotEmpty) ...[
             const SizedBox(height: 10),
             Text(

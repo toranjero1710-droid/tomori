@@ -30,20 +30,33 @@ class OpenAiService implements AiService {
     }
 
     final prompt = await promptLoader.load('tomori_letter');
-    final response = await _client.post(
-      Uri.parse(_responsesUrl),
-      headers: {
-        'Authorization': 'Bearer $apiKey',
-        'Content-Type': 'application/json',
-      },
-      body: jsonEncode({
-        'model': model,
-        'instructions': prompt,
-        'input': input.toPromptInput(),
-      }),
-    );
+    late final http.Response response;
+    try {
+      response = await _client
+          .post(
+            Uri.parse(_responsesUrl),
+            headers: {
+              'Authorization': 'Bearer $apiKey',
+              'Content-Type': 'application/json',
+            },
+            body: jsonEncode({
+              'model': model,
+              'instructions': prompt,
+              'input': input.toPromptInput(),
+            }),
+          )
+          .timeout(const Duration(seconds: 45));
+    } catch (_) {
+      throw const AiConfigurationException(
+        'OpenAI API request failed.',
+        isNetworkFailure: true,
+      );
+    }
     if (response.statusCode < 200 || response.statusCode >= 300) {
-      throw AiConfigurationException('OpenAI API request failed: ${response.statusCode}');
+      throw AiConfigurationException(
+        'OpenAI API request failed: ${response.statusCode}',
+        isNetworkFailure: true,
+      );
     }
     final json = jsonDecode(utf8.decode(response.bodyBytes)) as Map<String, dynamic>;
     final outputText = json['output_text'];

@@ -5,9 +5,10 @@ abstract class AiService {
 }
 
 class AiConfigurationException implements Exception {
-  const AiConfigurationException(this.message);
+  const AiConfigurationException(this.message, {this.isNetworkFailure = false});
 
   final String message;
+  final bool isNetworkFailure;
 
   @override
   String toString() => message;
