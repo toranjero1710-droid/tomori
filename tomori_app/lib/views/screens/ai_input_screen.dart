@@ -26,7 +26,11 @@ class AiInputScreen extends StatelessWidget {
               shape: BoxShape.circle,
               color: viewModel.isRecording ? const Color(0xFFDDE9CF) : TomoriColors.lightGreen,
               boxShadow: [
-                BoxShadow(color: TomoriColors.green.withValues(alpha: 0.18), blurRadius: viewModel.isRecording ? 36 : 20, spreadRadius: viewModel.isRecording ? 18 : 8),
+                BoxShadow(
+                  color: TomoriColors.green.withValues(alpha: 0.18),
+                  blurRadius: viewModel.isRecording ? 36 : 20,
+                  spreadRadius: viewModel.isRecording ? 18 : 8,
+                ),
               ],
             ),
             child: const Center(
@@ -34,15 +38,37 @@ class AiInputScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
-          Text(viewModel.recordingTime, style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w700, color: TomoriColors.text)),
-          Text(viewModel.isRecording ? '録音中です' : '音声メモ保存済み', style: Theme.of(context).textTheme.bodySmall),
+          Text(
+            viewModel.recordingTime,
+            style: const TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.w700,
+              color: TomoriColors.text,
+            ),
+          ),
+          Text(
+            viewModel.isRecording ? '録音中です' : '音声メモ保存済み',
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
           const SizedBox(height: 18),
           SoftCard(
             padding: const EdgeInsets.all(14),
             child: Text(viewModel.voiceMemo, style: Theme.of(context).textTheme.bodyMedium),
           ),
           const SizedBox(height: 18),
-          TomoriButton(label: 'AIが内容を作成する', icon: Icons.auto_awesome, onPressed: viewModel.createAiDraft),
+          TomoriButton(
+            label: viewModel.isGeneratingAi ? 'AI生成中' : 'AIが内容を作成する',
+            icon: Icons.auto_awesome,
+            onPressed: viewModel.isGeneratingAi ? () {} : viewModel.createAiDraft,
+          ),
+          if (viewModel.aiError.isNotEmpty) ...[
+            const SizedBox(height: 10),
+            Text(
+              viewModel.aiError,
+              textAlign: TextAlign.center,
+              style: const TextStyle(color: Colors.redAccent, fontWeight: FontWeight.w700),
+            ),
+          ],
           const SizedBox(height: 10),
           TextButton.icon(
             onPressed: viewModel.toggleRecording,

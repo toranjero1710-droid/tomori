@@ -16,14 +16,27 @@ class TomoriLetterScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text('ともり便り（下書き）', textAlign: TextAlign.center, style: Theme.of(context).textTheme.titleLarge),
+          Text(
+            'ともり便り（下書き）',
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
           const SizedBox(height: 4),
-          Text('AIが作成した下書きです', textAlign: TextAlign.center, style: Theme.of(context).textTheme.bodySmall),
+          Text(
+            'AIが作成した下書きです',
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
           const SizedBox(height: 18),
           SoftCard(
             color: const Color(0xFFFFFAEF),
             padding: const EdgeInsets.all(20),
-            child: Text(viewModel.aiDraft, style: const TextStyle(fontSize: 15, height: 1.78, color: TomoriColors.text)),
+            child: Text(
+              viewModel.aiDraft.isEmpty
+                  ? 'AI入力画面から下書きを生成してください。'
+                  : viewModel.aiDraft,
+              style: const TextStyle(fontSize: 15, height: 1.78, color: TomoriColors.text),
+            ),
           ),
           const SizedBox(height: 16),
           Text('一言追加する（任意）', style: Theme.of(context).textTheme.titleMedium),
@@ -37,15 +50,29 @@ class TomoriLetterScreen extends StatelessWidget {
               hintText: '自由にご入力ください',
               filled: true,
               fillColor: Colors.white,
-              border: OutlineInputBorder(borderRadius: BorderRadius.circular(15), borderSide: const BorderSide(color: TomoriColors.line)),
-              enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(15), borderSide: const BorderSide(color: TomoriColors.line)),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(15),
+                borderSide: const BorderSide(color: TomoriColors.line),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(15),
+                borderSide: const BorderSide(color: TomoriColors.line),
+              ),
             ),
           ),
           const SizedBox(height: 8),
-          TomoriButton(label: '送信する（確認画面へ）', icon: Icons.send_outlined, onPressed: viewModel.saveLetterNote),
+          TomoriButton(
+            label: '送信する（確認画面へ）',
+            icon: Icons.send_outlined,
+            onPressed: viewModel.saveLetterNote,
+          ),
           const SizedBox(height: 12),
           if (viewModel.letterSaved)
-            const Text('巡回履歴へ保存済みです。', textAlign: TextAlign.center, style: TextStyle(color: TomoriColors.green, fontWeight: FontWeight.w700)),
+            const Text(
+              '巡回履歴へ保存済みです。',
+              textAlign: TextAlign.center,
+              style: TextStyle(color: TomoriColors.green, fontWeight: FontWeight.w700),
+            ),
         ],
       ),
     );
